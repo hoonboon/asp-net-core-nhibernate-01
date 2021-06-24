@@ -26,7 +26,7 @@ namespace Core_WebMVC_NHibernate_01
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connStr = Configuration.GetConnectionString("DefaultConnection");
+            var connStr = Configuration.GetConnectionString("IbmDb2");
 
             services.AddNHibernate(connStr, _env.IsDevelopment());
 

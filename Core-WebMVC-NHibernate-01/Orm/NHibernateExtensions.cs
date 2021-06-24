@@ -21,8 +21,8 @@ namespace Core_WebMVC_NHibernate_01.Orm
             var configuration = new Configuration();
             configuration.DataBaseIntegration(c =>
             {
-                c.Dialect<MsSql2012Dialect>();
-                c.Driver<SqlClientDriver>();
+                c.Dialect<DB2Dialect>();
+                c.Driver<DB2CoreDriver>();
                 c.ConnectionString = connectionString;
                 c.IsolationLevel = System.Data.IsolationLevel.ReadCommitted;
                 c.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
