@@ -3,6 +3,45 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="display-4">
+        Dependency Injection Lifetime
+    </h2>
 </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="background-color: lightgrey">Service Type</th>
+            <th style="background-color: lightgrey">First Instance Operation ID</th>
+            <th style="background-color: lightgrey">Second Instance Operation ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="background-color: darksalmon">
+                Transient
+            </td>
+            <td style="background-color: darksalmon">
+                @ViewBag.transient1
+            </td>
+            <td style="background-color: darksalmon">
+                @ViewBag.transient2
+            </td>
+        </tr>
+        <tr>
+            <td>Scoped</td>
+            <td>@ViewBag.scoped1</td>
+            <td>@ViewBag.scoped2</td>
+        </tr>
+        <tr>
+            <td style="background-color: aquamarine">
+                Singleton
+            </td>
+            <td style="background-color: aquamarine">
+                @ViewBag.singleton1
+            </td>
+            <td style="background-color: aquamarine">
+                @ViewBag.singleton2
+            </td>
+        </tr>
+    </tbody>
+</table>

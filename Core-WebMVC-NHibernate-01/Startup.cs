@@ -1,13 +1,16 @@
 using Core_WebMVC_NHibernate_01.Orm;
+using Core_WebMVC_NHibernate_01.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NetCore.AutoRegisterDi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Core_WebMVC_NHibernate_01
@@ -31,6 +34,13 @@ namespace Core_WebMVC_NHibernate_01
             services.AddNHibernate(connStr, _env.IsDevelopment());
 
             services.AddControllersWithViews();
+
+            var dilogs = services.RegisterAssemblyPublicNonGenericClasses(
+                    Assembly.GetAssembly(typeof(IScopedService))
+                )
+                .Where(c => c.Name.EndsWith("Service"))
+                .AsPublicImplementedInterfaces();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
